@@ -1,3 +1,28 @@
+libx11 (2:1.3.3-4) UNRELEASED; urgency=low
+
+  * Cherry-pick patches from upstream, 1.3-branch:
+    - man: Fix typo in Makefile
+    - Bug 27465 - Rewritten fi_FI.UTF-8 Compose file
+    - Fix typo in new fi_FI.UTF-8 that was reported by "make check"
+    - man: Redirect users from XKeycodeToKeysym to XkbKeycodeToKeysym #25732
+    - man: Fix return value specification of XkbKeyActionEntry
+    - man: Return value of XkbGetState is Status and not Bool
+    - man: Add missing geometry component flag
+    - man: Correct the XkbAllAccessXEventsMask mask name
+    - Fix manual typos.
+    - Allow X11 users to compose anarchism
+    - Clarify requirements in XRestackWindows man page
+    - Fix typo that made configure always report "none" for man page suffix
+    - Define FILE_MAN_DIR_SUFFIX so XCompose shadow page has correct path
+    - Compose.man: default user compose file is .XCompose, not .Xcompose
+    - Make Compose-comma map to Ogonek for A and E in UTF-8 locales.
+    - Make Compose-comma map to ogonek for I and U in UTF-8 locales.
+    - NLS: Add \o/ Compose sequence
+    - nls: Switch one of the interrobang sequences to gnaborretni
+    - Bug 29773: aliases for nb_NO.utf8 and nn_NO.utf8
+
+ -- Cyril Brulebois <kibi@debian.org>  Fri, 19 Nov 2010 17:31:50 +0100
+
 libx11 (2:1.3.3-3) unstable; urgency=low
 
   [ Julien Cristau ]
