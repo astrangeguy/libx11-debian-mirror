@@ -42,8 +42,6 @@ else
 	confflags += --build=$(DEB_BUILD_GNU_TYPE) --host=$(DEB_HOST_GNU_TYPE)
 endif
 
-confflags += --enable-man-pages=3
-
 configure: $(STAMP_DIR)/patch
 	dh_testdir
 	autoreconf -vfi
@@ -52,16 +50,18 @@ build: build-stamp
 build-stamp: configure $(STAMP_DIR)/genscripts
 	dh_testdir
 
-	mkdir -p obj-$(DEB_BUILD_GNU_TYPE)
-	cd obj-$(DEB_BUILD_GNU_TYPE) && \
+	mkdir -p build
+	cd build && \
 	../configure \
 		--prefix=/usr \
 		--mandir=\$${prefix}/share/man \
 		--infodir=\$${prefix}/share/info \
 		--enable-specs \
+		--with-xmlto \
+		--without-fop \
 		$(confflags) \
 		CFLAGS="$(CFLAGS)"
-	cd obj-$(DEB_BUILD_GNU_TYPE) && $(MAKE)
+	cd build && $(MAKE)
 	>$@
 
 clean: xsfclean
@@ -73,13 +73,11 @@ clean: xsfclean
 	rm -f */config.cache */config.log */config.status
 	rm -f conftest* */conftest*
 	rm -rf autom4te.cache */autom4te.cache
-	rm -rf obj-*
+	rm -rf build
 	rm -f aclocal.m4 compile config.guess config.sub configure
 	rm -f depcomp install-sh ltmain.sh missing mkinstalldirs
 	rm -f src/config.h.in
-	rm -f $$(find -name Makefile.in)
-	# leftovers from the specs build
-	rm -f specs/*.png
+	find -name Makefile.in -delete
 
 	dh_clean
 
@@ -89,10 +87,7 @@ install: build
 	dh_clean -k
 	dh_installdirs
 
-	cd obj-$(DEB_BUILD_GNU_TYPE) && $(MAKE) DESTDIR=$(CURDIR)/debian/tmp install
-	# groff seems to produce ugly html, so only include the pdf and txt
-	# versions
-	rm -f debian/tmp/usr/share/doc/libX11/*.html
+	cd build && $(MAKE) DESTDIR=$(CURDIR)/debian/tmp install
 
 # Build architecture-dependent files here.
 binary-arch: build install
@@ -100,6 +95,8 @@ binary-arch: build install
 	dh_testroot
 
 	dh_installdocs -s NEWS
+	# Kill *.xml files, we don't need them:
+	find debian/tmp -name '*.xml' -delete
 	# Using exclusions here allows libx11-6.install to use wildcards for
 	# headers and manpages, rather than listing every header and manpage
 	# other than these.
@@ -116,7 +113,8 @@ binary-arch: build install
 	dh_strip -Nlibx11-6 -Nlibx11-xcb1
 	dh_compress -s
 	dh_fixperms -s
-	dh_makeshlibs -s -- -c4
+	dh_makeshlibs -s -plibx11-6 --add-udeb=libx11-6-udeb -- -c4
+	dh_makeshlibs -s -Nlibx11-6 -- -c4
 	dh_shlibdeps -s
 	dh_installdeb -s
 	dh_gencontrol -s

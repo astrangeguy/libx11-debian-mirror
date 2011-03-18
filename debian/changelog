@@ -1,3 +1,177 @@
+libx11 (2:1.4.1-5ubuntu1) natty; urgency=low
+
+  * Merge from debian unstable.  Remaining changes:
+    - Add Latin locale.
+    - Add Klingon locale.
+    - Add 102_double_arrows_Compose.patch: compose keys for double arrows
+      (LP: 680143)
+
+ -- Timo Aaltonen <tjaalton@ubuntu.com>  Thu, 24 Feb 2011 12:02:14 +0200
+
+libx11 (2:1.4.1-5) unstable; urgency=low
+
+   * Mark x11-data Multi-Arch: foreign.
+
+ -- Steve Langasek <vorlon@debian.org>  Mon, 21 Feb 2011 20:01:35 -0800
+
+libx11 (2:1.4.1-4) unstable; urgency=low
+
+  * Bump Standards-Version to 3.9.1.
+  * specs were converted from groff to xml, so we can ship the html version
+    now.
+  * Drop Build-Dependencies on groff/ghostscript/... since the docs were
+    converted to xml.
+
+ -- Julien Cristau <jcristau@debian.org>  Mon, 07 Feb 2011 12:36:09 +0100
+
+libx11 (2:1.4.1-3) unstable; urgency=low
+
+  * Remove David Nusinow and Brice Goglin from Uploaders.  Thanks for all your
+    work!
+  * Drop Conflicts on sarge-era xlibs-data, Replaces on sarge-era libx11-6,
+    Pre-Depends on x11-common (needed for upgrades from sarge), and Conflicts
+    against pre-XCB libx11-6.
+  * Wrap debian/control Depends fields.
+  * Upload to unstable.
+
+ -- Julien Cristau <jcristau@debian.org>  Sun, 06 Feb 2011 22:42:28 +0100
+
+libx11 (2:1.4.1-2) experimental; urgency=low
+
+  * Make libx11-data break earlier versions of libx11-6, since those rely
+    on XKeysymDB, resulting in a non-functional keyboard and plenty of
+    such messages: “Internal error: Could not resolve keysym *”.
+
+ -- Cyril Brulebois <kibi@debian.org>  Tue, 18 Jan 2011 18:47:22 +0100
+
+libx11 (2:1.4.1-1) experimental; urgency=low
+
+  [ Julien Cristau ]
+  * New upstream release.
+    - lots of fixes for multithreaded apps
+    - X11 users can now compose anarchism (closes: #555938)
+
+  [ Robert Hooker ]
+  * New upstream release.
+  * Don't install unshipped XKeysymDB.
+  * Bump xutils-dev build-dep to 1:7.5+5 for util-macros 1.11 requirement.
+
+  [ Cyril Brulebois ]
+  * New new (new) upstream release.
+  * As a temporary measure, add 020_keep_xorg_css.diff to avoid having to
+    depend on xorg-sgml-doctools just for xorg.css.
+  * Refresh all patches.
+  * Some functions got hidden by upstream in aebbf36238, since “none of
+    the functions in Xprivate.h should have any callers outside of Xlib,
+    by definition”. As a consequence, drop the following symbols from
+    libx11-6.symbols:
+    - _XIDHandler@Base
+    - _XSetPrivSyncFunction@Base
+    - _XSetSeqSyncFunction@Base
+  * Drop obsolete --enable-man-pages=3 from configure flags.
+  * Pass --with-xmlto and --without-fop for the documentation generation.
+  * Add xmlto, xorg-sgml-doctools, w3m build-dep accordingly.
+  * Remove *.xml before running dh_install, there's no point in shipping
+    those files.
+  * Update debian/copyright from upstream COPYING.
+
+ -- Cyril Brulebois <kibi@debian.org>  Thu, 13 Jan 2011 01:18:40 +0100
+
+libx11 (2:1.3.3-3ubuntu4) natty; urgency=low
+
+  * Adjust symbols file for ppc64.
+
+ -- Matthias Klose <doko@ubuntu.com>  Wed, 09 Feb 2011 17:18:41 +0000
+
+libx11 (2:1.3.3-3ubuntu3) natty; urgency=low
+
+  * Add 103_fix_groff_grep.patch: Correct for changes to groff warning
+    message formatting in groff 1.21.  Fixes FTBS in libx11.
+    Thanks cjwatson.
+    (LP: #705510)
+
+ -- Bryce Harrington <bryce@ubuntu.com>  Fri, 28 Jan 2011 11:45:26 -0800
+
+libx11 (2:1.3.3-3ubuntu2) natty; urgency=low
+
+  * Add 102_double_arrows_Compose.patch: compose keys for double arrows
+    (LP: #680143)
+
+ -- Bryce Harrington <bryce@ubuntu.com>  Mon, 22 Nov 2010 13:43:21 -0800
+
+libx11 (2:1.3.3-3ubuntu1) maverick; urgency=low
+
+  * Resynchronise with Debian.  Remaining changes:
+    - Add Latin locale.
+    - Add Klingon locale.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 13 May 2010 14:10:02 +0200
+
+libx11 (2:1.3.3-3) unstable; urgency=low
+
+  [ Julien Cristau ]
+  * Drop manpage from libx11-6-udeb.
+  * Don't install X11 locale data in the udeb.  The installer uses only gtk
+    apps so this is useless (and big).
+
+  [ Cyril Brulebois ]
+  * Cherry-pick patch from upstream to run user's synchandlers as well as
+    any internal synchandlers: 75ea8c3793. This fixes xnee issues when
+    RECORD extension is enabled (Closes: #536491; LP: #378648).
+  * Merge xsfbs/debian-unstable to fix double autoreconf runs.
+
+ -- Cyril Brulebois <kibi@debian.org>  Tue, 13 Apr 2010 14:46:16 +0200
+
+libx11 (2:1.3.3-2) unstable; urgency=low
+
+  [ Julien Cristau ]
+  * Update debian/copyright from upstream COPYING.
+  * Remove myself from Uploaders
+
+  [ Brice Goglin ]
+  * Remove Jamey Sharp and Josh Triplett from Uploaders, closes: #568274.
+
+  [ Cyril Brulebois ]
+  * Add udeb needed for the graphical installer: libx11-6-udeb.
+  * Bump the B-D on libxcb1-dev to ensure libx11-6-udeb gets a dependency
+    on libxcb1-udeb.
+  * Bump Standards-Version from 3.8.3 to 3.8.4 (no changes needed).
+  * Add myself to Uploaders.
+
+ -- Cyril Brulebois <kibi@debian.org>  Thu, 11 Mar 2010 01:06:06 +0100
+
+libx11 (2:1.3.3-1) unstable; urgency=low
+
+  * xtrans has been fixed to not make us export a weak in6addr_any.  Adjust
+    libx11-6.symbols accordingly (closes: #560648).
+  * Rename the build directory to not include DEB_BUILD_GNU_TYPE for no
+    good reason.  Thanks, Colin Watson!
+  * Update symbols file for sparc64 (closes: #560400).  Thanks, Aurélien
+    Jarno!
+  * New upstream release
+    + fix XCopyGC argument order in manpage (LP: #408337)
+  * Bump xutils-dev build-dep for new util-macros.
+  * Install the Compose man page in libx11-data.
+  * Rediff patches 003_recognize_glibc_2.3.2_locale_names.diff,
+    007_iso8859-15_Compose_fix.diff, 008_remove_ko_Compose.diff,
+    009_remove_th_Compose.diff, 015_russian_locale_alias.diff.
+  * libx11-6.symbols: add xlocaledir, made non-static in 1.3.3.
+
+ -- Julien Cristau <jcristau@debian.org>  Sat, 16 Jan 2010 22:47:32 +0000
+
+libx11 (2:1.3.2-1ubuntu3) lucid; urgency=low
+
+  * Remove incorrectly exposed in6addr_any symbol from libx11.symbols, this
+    is private.
+
+ -- Robert Collins <robertc@robertcollins.net>  Thu, 04 Feb 2010 03:45:18 +1100
+
+libx11 (2:1.3.2-1ubuntu2) lucid; urgency=low
+
+  * Add klingon language definition.
+
+ -- Robert Collins <robertc@robertcollins.net>  Tue, 02 Feb 2010 18:28:01 -0800
+
 libx11 (2:1.3.2-1ubuntu1) lucid; urgency=low
 
   * Merge from Debian unstable, remaining changes:
@@ -631,3 +805,4 @@ libx11 (1:6.2.1+cvs.20050615-1) breezy; urgency=low
     + XCB support removed for now.
 
  -- Daniel Stone <daniel.stone@ubuntu.com>  Mon, 16 May 2005 22:10:17 +1000
+
