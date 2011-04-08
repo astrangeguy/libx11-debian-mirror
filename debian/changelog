@@ -8,11 +8,15 @@ libx11 (2:1.4.2-1ubuntu1) UNRELEASED; urgency=low
 
  -- Timo Aaltonen <tjaalton@ubuntu.com>  Fri, 18 Mar 2011 17:21:11 +0200
 
-libx11 (2:1.4.2-1) UNRELEASED; urgency=low
+libx11 (2:1.4.2-1) unstable; urgency=low
 
+  [ Timo Aaltonen ]
   * New upstream release. (closes: #463159)
 
- -- Timo Aaltonen <tjaalton@ubuntu.com>  Fri, 18 Mar 2011 09:44:04 +0200
+  [ Cyril Brulebois ]
+  * Bump x11proto-xf86bigfont-dev build-dep.
+
+ -- Cyril Brulebois <kibi@debian.org>  Sat, 26 Mar 2011 00:36:43 +0100
 
 libx11 (2:1.4.1-5ubuntu1) natty; urgency=low
 
@@ -26,7 +30,7 @@ libx11 (2:1.4.1-5ubuntu1) natty; urgency=low
 
 libx11 (2:1.4.1-5) unstable; urgency=low
 
-   * Mark x11-data Multi-Arch: foreign.
+  * Mark x11-data Multi-Arch: foreign.
 
  -- Steve Langasek <vorlon@debian.org>  Mon, 21 Feb 2011 20:01:35 -0800
 
