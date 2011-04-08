@@ -1,12 +1,12 @@
-libx11 (2:1.4.2-1ubuntu1) UNRELEASED; urgency=low
+libx11 (2:1.4.2-1ubuntu1) natty; urgency=low
 
-  * Merge from debian-unstable git, remaining changes:
+  * Merge from Debian unstable, remaining changes:
     - Add Latin locale.
     - Add Klingon locale.
     - Add 102_double_arrows_Compose.patch: compose keys for double arrows
       (LP: 680143)
 
- -- Timo Aaltonen <tjaalton@ubuntu.com>  Fri, 18 Mar 2011 17:21:11 +0200
+ -- Timo Aaltonen <tjaalton@ubuntu.com>  Fri, 08 Apr 2011 19:04:53 +0300
 
 libx11 (2:1.4.2-1) unstable; urgency=low
 
