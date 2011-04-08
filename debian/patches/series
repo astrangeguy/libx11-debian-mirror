@@ -5,6 +5,6 @@
 009_remove_th_Compose.diff
 015_russian_locale_alias.diff
 020_keep_xorg_css.diff
-100_latin_locale_alias.diff101_klingon_locale_alias.diff
-102_double_arrows_Compose.diff
+100_latin_locale_alias.diff
+101_klingon_locale_alias.diff
 102_double_arrows_Compose.diff
