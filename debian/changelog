@@ -1,3 +1,9 @@
+libx11 (2:1.4.2-1ubuntu3) natty; urgency=low
+
+  * FFe LP: #733501: build for multiarch, patch dropped in previous merge.
+
+ -- Steve Langasek <steve.langasek@ubuntu.com>  Sat, 09 Apr 2011 01:42:23 -0700
+
 libx11 (2:1.4.2-1ubuntu2) natty; urgency=low
 
   * Fix the debian/patch/series file (FTBFS).
