@@ -9,7 +9,7 @@ Build-Depends:
  dpkg-dev (>= 1.16.0~ubuntu4),
  pkg-config,
  xtrans-dev,
- x11proto-core-dev (>= 7.0.13),
+ x11proto-core-dev (>= 7.0.21),
  x11proto-kb-dev,
  x11proto-input-dev,
  x11proto-xext-dev,
@@ -18,7 +18,7 @@ Build-Depends:
  quilt,
  automake,
  libtool,
- xutils-dev (>= 1:7.5+5),
+ xutils-dev (>= 1:7.6+2),
 # specs
  xmlto,
  xorg-sgml-doctools (>= 1:1.5),
