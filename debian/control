@@ -6,7 +6,7 @@ XSBC-Original-Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Uploaders: Cyril Brulebois <kibi@debian.org>
 Build-Depends:
  debhelper (>= 5.0.0),
- dpkg-dev (>= 1.16.0~ubuntu4),
+ dpkg-dev (>= 1.16.0),
  pkg-config,
  xtrans-dev,
  x11proto-core-dev (>= 7.0.21),
@@ -23,7 +23,7 @@ Build-Depends:
  xmlto,
  xorg-sgml-doctools (>= 1:1.5),
  w3m,
-Standards-Version: 3.9.1
+Standards-Version: 3.9.2
 Vcs-Git: git://git.debian.org/git/pkg-xorg/lib/libx11
 Vcs-Browser: http://git.debian.org/?p=pkg-xorg/lib/libx11.git
 
@@ -80,7 +80,6 @@ Depends:
  ${shlibs:Depends},
  ${misc:Depends},
  libx11-6 (= ${binary:Version}),
-Pre-Depends: ${misc:Pre-Depends}
 Multi-Arch: same
 Description: X11 client-side library (debug package)
  This package provides a client interface to the X Window System, otherwise
@@ -153,7 +152,6 @@ Depends:
  ${shlibs:Depends},
  ${misc:Depends},
  libx11-xcb1 (= ${binary:Version}),
-Pre-Depends: ${misc:Pre-Depends}
 Multi-Arch: same
 Description: Xlib/XCB interface library (debug package)
  libX11-xcb provides functions needed by clients which take advantage of
