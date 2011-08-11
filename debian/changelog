@@ -1,3 +1,13 @@
+libx11 (2:1.4.4-1ubuntu1) UNRELEASED; urgency=low
+
+  * Merge from Debian unstable, remaining changes:
+    - Add 102_double_arrows_Compose.patch: compose keys for double arrows
+      (LP: 680143)
+  * Remove patches for la_AU and tlh_UK, since they were declined by
+    X.Org and Debian.
+
+ -- Timo Aaltonen <tjaalton@ubuntu.com>  Thu, 11 Aug 2011 13:42:58 +0300
+
 libx11 (2:1.4.4-1) unstable; urgency=low
 
   * New upstream release.
