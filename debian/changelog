@@ -1,3 +1,21 @@
+libx11 (2:1.4.4-1) unstable; urgency=low
+
+  * New upstream release.
+  * Drop xorg.css from libx11-dev, depend on xorg-sgml-doctools instead.
+
+ -- Julien Cristau <jcristau@debian.org>  Sat, 30 Jul 2011 22:14:56 +0200
+
+libx11 (2:1.4.3-3) unstable; urgency=low
+
+  [ Julien Cristau ]
+  * Add lintian override for the libx11-private dep in libx11-6.symbols.
+
+  [ Cyril Brulebois ]
+  * Fix the FTBFS on s390x (Closes: #635692): Add s390x to the list of
+    64-bit architectures in the symbols file. Thanks, Aurélien Jarno!
+
+ -- Cyril Brulebois <kibi@debian.org>  Thu, 28 Jul 2011 15:08:36 +0200
+
 libx11 (2:1.4.3-2ubuntu1) oneiric; urgency=low
 
   * Merge from Debian unstable, remaining changes:
