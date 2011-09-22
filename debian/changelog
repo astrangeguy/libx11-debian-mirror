@@ -1,8 +1,8 @@
-libx11 (2:1.4.4-2ubuntu1) UNRELEASED; urgency=low
+libx11 (2:1.4.4-2ubuntu1) oneiric; urgency=low
 
   * Merge from Debian unstable.
 
- -- Timo Aaltonen <tjaalton@ubuntu.com>  Thu, 22 Sep 2011 21:01:03 +0300
+ -- Timo Aaltonen <tjaalton@ubuntu.com>  Thu, 22 Sep 2011 21:01:40 +0300
 
 libx11 (2:1.4.4-2) unstable; urgency=low
 
