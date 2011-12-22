@@ -1,10 +1,10 @@
-libx11 (2:1.4.99.1-0ubuntu1) UNRELEASED; urgency=low
+libx11 (2:1.4.99.1-0ubuntu1) precise; urgency=low
 
   * New upstream release.
   * Refreshed 006_tailor_pt_BR.UTF-8_Compose.diff
   * Add _XGetRequest to symbols
 
- -- Chase Douglas <chase.douglas@ubuntu.com>  Wed, 21 Dec 2011 18:09:01 -0800
+ -- Chase Douglas <chase.douglas@ubuntu.com>  Wed, 21 Dec 2011 18:20:16 -0800
 
 libx11 (2:1.4.4-5) UNRELEASED; urgency=low
 
