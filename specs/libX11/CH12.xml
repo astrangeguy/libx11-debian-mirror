@@ -1573,9 +1573,10 @@ is later than the current X server time.
 Depending on the event_mode argument, the following occurs:
 </para>
 <informaltable frame='none'>
-  <tgroup cols='2'>
-  <colspec colname='c1'/>
-  <colspec colname='c2'/>
+  <?dbfo keep-together="always" ?>
+  <tgroup cols='2' align='left' colsep='0' rowsep='0'>
+  <colspec colname='c1' colwidth='1.0*'/>
+  <colspec colname='c2' colwidth='4.0*'/>
   <tbody>
     <row>
       <entry><symbol>AsyncPointer</symbol></entry>
@@ -1925,7 +1926,7 @@ error.
 Xlib provides functions that you can use to set and get the input focus.
 The input focus is a shared resource, and cooperation among clients is
 required for correct interaction.  See the
-<emphasis remap='I'>Inter-Client Communication Conventions Manual</emphasis> 
+<olink targetdoc='icccm' targetptr='Input_Focus'><citetitle>Inter-Client Communication Conventions Manual</citetitle></olink>
 for input focus policy.
 </para>
 <para>

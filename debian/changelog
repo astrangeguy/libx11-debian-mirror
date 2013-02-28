@@ -1,3 +1,56 @@
+libx11 (2:1.5.0-1) unstable; urgency=low
+
+  * New upstream release. Visible changes:
+    - Add APL support, yay!
+    - A few duplicated Compose sequences were tweaked or removed. Affected
+      characters are: Ã / µ / Ñ / ñ / ¹ / ² / ³ / Ó / ó / Ǻ / ǻ.
+  * Drop patch, fixed upstream:
+    - 001-configure-check-if-issetugid-is-declared.diff
+
+ -- Cyril Brulebois <kibi@debian.org>  Sat, 16 Jun 2012 20:32:52 +0000
+
+libx11 (2:1.4.99.901-2) unstable; urgency=low
+
+  * Add AC_CHECK_DECL(issetugid) to fix FTBFS on kfreebsd (closes: #669670).
+
+ -- Julien Cristau <jcristau@debian.org>  Sun, 29 Apr 2012 16:55:39 +0200
+
+libx11 (2:1.4.99.901-1) unstable; urgency=low
+
+  * New upstream release candidate (1.5 RC1)
+    - XQueryColors: split a request into multiple requests if necessary
+      (closes: #278984)
+    - Revert "xcb: Add TCP fallback" (closes: #659558)
+  * Don't require (fake)root for debian/rules clean.
+  * Drop xorg-sgml-doctools dependency from libx11-doc, the css is now
+    included in the html files directly.  Also add Breaks in addition to the
+    Replaces on old libx11-dev.
+  * Add build-indep and build-arch targets, don't build specs in build-arch.
+  * Rediff 006_tailor_pt_BR.UTF-8_Compose.diff and
+    015_russian_locale_alias.diff.
+  * Upload to unstable.
+
+ -- Julien Cristau <jcristau@debian.org>  Thu, 19 Apr 2012 22:58:30 +0200
+
+libx11 (2:1.4.99.1-1) experimental; urgency=low
+
+  [ Julien Cristau ]
+  * Move xorg-sgml-doctools dependency from -dev to -doc.
+  * Move libx11-doc from section libdevel to doc (closes: #648706).
+
+  [ Cyril Brulebois ]
+  * New upstream release candidate:
+    - Bug fixes, specs clean-up, new compose sequences.
+    - Add GetRequestSized.
+  * Bump xorg-sgml-doctools build-dep.
+  * Refresh patch:
+    - 006_tailor_pt_BR.UTF-8_Compose.diff
+  * Add symbol:
+    - _XGetRequest@Base
+  * Bump shlibs accordingly, for the udeb.
+
+ -- Cyril Brulebois <kibi@debian.org>  Thu, 22 Dec 2011 12:58:15 +0100
+
 libx11 (2:1.4.99.1-0ubuntu1) precise; urgency=low
 
   * New upstream release.
@@ -5,13 +58,6 @@ libx11 (2:1.4.99.1-0ubuntu1) precise; urgency=low
   * Add _XGetRequest to symbols
 
  -- Chase Douglas <chase.douglas@ubuntu.com>  Wed, 21 Dec 2011 18:20:16 -0800
-
-libx11 (2:1.4.4-5) UNRELEASED; urgency=low
-
-  * Move xorg-sgml-doctools dependency from -dev to -doc.
-  * Move libx11-doc from section libdevel to doc (closes: #648706).
-
- -- Julien Cristau <jcristau@debian.org>  Fri, 11 Nov 2011 20:38:39 +0100
 
 libx11 (2:1.4.4-4) unstable; urgency=low
 
