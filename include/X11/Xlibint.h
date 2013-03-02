@@ -883,6 +883,10 @@ extern void _XEatData(
     Display*		/* dpy */,
     unsigned long	/* n */
 );
+extern void _XEatDataWords(
+    Display*		/* dpy */,
+    unsigned long	/* n */
+);
 extern char *_XAllocScratch(
     Display*		/* dpy */,
     unsigned long	/* nbytes */
