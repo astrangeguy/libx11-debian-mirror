@@ -550,7 +550,7 @@ XOpenDisplay (
 		    dpy->xdefaults[reply.nItems] = '\0';
 		}
 		else if (reply.propertyType != None)
-		    _XEatData(dpy, reply.nItems * (reply.format >> 3));
+		    _XEatDataWords(dpy, reply.length);
 	    }
 	}
 	UnlockDisplay(dpy);
