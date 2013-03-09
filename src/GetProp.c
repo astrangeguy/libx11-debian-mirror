@@ -50,6 +50,13 @@ XGetWindowProperty(
     register xGetPropertyReq *req;
     xError error;
 
+    /* Always initialize return values, in case callers fail to initialize
+       them and fail to check the return code for an error. */
+    *actual_type = None;
+    *actual_format = 0;
+    *nitems = *bytesafter = 0L;
+    *prop = (unsigned char *) NULL;
+
     LockDisplay(dpy);
     GetReq (GetProperty, req);
     req->window = w;
@@ -66,7 +73,6 @@ XGetWindowProperty(
 	return (1);	/* not Success */
 	}
 
-    *prop = (unsigned char *) NULL;
     if (reply.propertyType != None) {
 	unsigned long nbytes, netbytes;
 	int format = reply.format;
