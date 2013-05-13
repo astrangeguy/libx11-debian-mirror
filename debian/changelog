@@ -1,3 +1,13 @@
+libx11 (2:1.5.0-1+deb7u1) wheezy-security; urgency=high
+
+  * CVE-2013-1981: integer overflows calculating memory needs for replies
+  * CVE-2013-1997: buffer overflows due to not validating length or offset
+    values in replies
+  * CVE-2013-2004: unbounded recursion parsing user-specified files
+    (closes: #145048)
+
+ -- Julien Cristau <jcristau@debian.org>  Tue, 21 May 2013 23:14:14 +0200
+
 libx11 (2:1.5.0-1) unstable; urgency=low
 
   * New upstream release. Visible changes:
