@@ -1,3 +1,24 @@
+libx11 (2:1.5.0-1ubuntu2) saucy; urgency=low
+
+  * SECURITY UPDATE: denial of service and possible code execution via
+    incorrect memory size calculations
+    - debian/patches/CVE-2013-1981.patch: fix multiple integer overflows.
+    - CVE-2013-1981
+  * SECURITY UPDATE: denial of service and possible code execution via
+    incorrect length and bounds checking
+    - debian/patches/CVE-2013-1997.patch: properly calculate lengths.
+    - CVE-2013-1997
+  * SECURITY UPDATE: denial of service and possible code execution via
+    stack overflow from recursive #include
+    - debian/patches/CVE-2013-2004.patch: set limit on depth.
+    - CVE-2013-2004
+  * debian/patches/001_hide_xeatdatawords.diff: Hide _XEatDataWords by
+    default.
+  * debian/patches/ftbfs_new_automake.patch: fix ftbfs with newer
+    automake.
+
+ -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Wed, 05 Jun 2013 15:40:48 -0400
+
 libx11 (2:1.5.0-1ubuntu1) raring; urgency=low
 
   * Update symbols file for arm64
